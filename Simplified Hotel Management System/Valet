@@ -1,0 +1,17 @@
+package HMS;
+
+public class Valet implements HotelService {
+    private String plateNumber;
+
+    public Valet(String plateNumber) {
+        this.plateNumber = plateNumber;}
+    
+    public void pickUpVehicle(String plateNumber) {
+        System.out.println("Vehicle with Plate Number " + plateNumber + " Parking");}
+
+    @Override
+    public void execute() {
+        pickUpVehicle(plateNumber);}
+
+    
+}

@@ -1,0 +1,5 @@
+package HMS;
+
+public interface HotelService {
+    void execute();
+}

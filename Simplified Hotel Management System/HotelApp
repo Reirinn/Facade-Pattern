@@ -1,0 +1,53 @@
+package HMS;
+import java.util.Scanner;
+public class HotelApp {
+    public static void main(String[] args)  {
+
+    	Scanner input = new Scanner(System.in);
+    	
+        FrontDesk frontDesk = new FrontDesk();
+        
+        while (true){
+
+            System.out.println("Choose type of service: ");
+            System.out.println("[ 1 ] Valet Parking\n" + "[ 2 ] Housekeeping\n" +"[ 3 ] Cart\n" + "[ 4 ] Exit");
+            System.out.print("Enter Choice [1-4]: ");
+            int choice = input.nextInt();
+
+            switch(choice) {
+                case 1:
+                    System.out.print("Enter plate number: ");
+                    String plateNum = input.next();
+                    HotelService valetService = new Valet(plateNum);
+                    frontDesk.delegateRequest(valetService);
+                    System.out.println();
+                    break;
+                    
+                case 2:
+                    System.out.print("Enter Room number: ");
+                    int roomNum = input.nextInt();
+                    HotelService housekeepingService = new HouseKeeping(roomNum);
+                    frontDesk.delegateRequest(housekeepingService);
+                    System.out.println();
+                    break;
+                    
+                case 3:
+                    System.out.print("Enter number of carts: ");
+                    int cartNum = input.nextInt();
+                    HotelService cartService = new Cart(cartNum);
+                    frontDesk.delegateRequest(cartService);
+                    System.out.println();
+                    break;
+                    
+                case 4:
+                    System.out.println("System Exiting...");
+                    System.exit(0);
+                    break;
+                    
+                default:
+                    System.out.println("Invalid input\n");
+                    break;
+            }
+        }
+    }
+}
